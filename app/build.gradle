@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp'
 }
 
 android {
@@ -27,17 +28,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
     buildFeatures {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.3.2'
+        kotlinCompilerExtensionVersion '1.4.7'
     }
     packagingOptions {
         resources {
@@ -48,14 +49,26 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.5.1'
-    implementation platform('androidx.compose:compose-bom:2022.10.00')
-    implementation 'androidx.compose.ui:ui'
-    implementation 'androidx.compose.ui:ui-graphics'
-    implementation 'androidx.compose.ui:ui-tooling-preview'
-    implementation 'androidx.compose.material3:material3'
+    implementation(libs.androidx.core.ktx)
+
+    // ---------------
+    // Jetpack Compose
+    // ---------------
+    implementation(platform(libs.compose.bom))
+    implementation(libs.bundles.compose)
+
+    // jetpack compose destination navigation
+    implementation(libs.compose.destination)
+    ksp(libs.compose.destination.ksp)
+
+    // koin
+    implementation(libs.koin.android)
+    implementation("io.insert-koin:koin-androidx-workmanager:3.3.1")
+    testImplementation("io.insert-koin:koin-test:3.3.0")
+    androidTestImplementation("io.insert-koin:koin-test:3.3.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.1")
+
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
