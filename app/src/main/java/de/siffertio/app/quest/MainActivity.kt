@@ -10,10 +10,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.view.WindowCompat
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
+import de.siffertio.app.quest.components.BottomNavigationBar
 import de.siffertio.app.quest.home.NavGraphs
 import de.siffertio.app.quest.koin.appModule
 import de.siffertio.app.quest.ui.theme.QuestTheme
@@ -29,7 +29,6 @@ import org.koin.core.context.startKoin
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
         startKoin {
             androidLogger()
             androidContext(this@MainActivity)
@@ -39,7 +38,7 @@ class MainActivity : ComponentActivity() {
             val engine = rememberAnimatedNavHostEngine()
             val navController = engine.rememberNavController()
             QuestTheme {
-                Scaffold() { innerPadding ->
+                Scaffold(bottomBar = { BottomNavigationBar(navController) }) { innerPadding ->
                     DestinationsNavHost(
                         engine = engine,
                         navController = navController,

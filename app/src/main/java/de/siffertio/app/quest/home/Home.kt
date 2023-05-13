@@ -8,12 +8,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.NavGraph
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import de.siffertio.app.quest.ui.theme.QuestTheme
 
+@RootNavGraph(start = true)
+@NavGraph(route = "HomeNavGraph")
+annotation class HomeNavGraph(val start: Boolean = false)
+
 @Composable
 @Destination
-@RootNavGraph(start = true)
+@HomeNavGraph(start = true)
 fun Home() {
     QuestTheme() {
         Column(
