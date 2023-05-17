@@ -7,6 +7,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -15,9 +16,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import de.siffertio.app.quest.NavGraph
+import de.siffertio.app.quest.NavGraphs
 import de.siffertio.app.quest.R
-import de.siffertio.app.quest.home.NavGraph
-import de.siffertio.app.quest.home.NavGraphs
 import de.siffertio.app.quest.ui.theme.QuestTheme
 
 enum class BottomBarDestination(
@@ -26,6 +27,7 @@ enum class BottomBarDestination(
     @StringRes val label: Int
 ) {
     Home(NavGraphs.HomeNavGraph, Icons.Default.Home, R.string.home_screen),
+    Settings(NavGraphs.SettingsNavGraph, Icons.Default.Settings, R.string.settings_screen)
 }
 
 @Composable

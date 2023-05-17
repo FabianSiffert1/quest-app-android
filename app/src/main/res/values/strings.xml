@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">quest</string>
     <string name="home_screen">Home</string>
+    <string name="settings_screen">Settings</string>
 </resources>

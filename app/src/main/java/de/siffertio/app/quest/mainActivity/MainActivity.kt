@@ -1,4 +1,4 @@
-package de.siffertio.app.quest
+package de.siffertio.app.quest.mainActivity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,10 +13,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
+import de.siffertio.app.quest.NavGraphs
 import de.siffertio.app.quest.components.BottomNavigationBar
-import de.siffertio.app.quest.home.NavGraphs
 import de.siffertio.app.quest.koin.appModule
 import de.siffertio.app.quest.ui.theme.QuestTheme
+import defaultTransitions
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
             modules(appModule)
         }
         setContent {
-            val engine = rememberAnimatedNavHostEngine()
+            val engine = rememberAnimatedNavHostEngine(rootDefaultAnimations = defaultTransitions)
             val navController = engine.rememberNavController()
             QuestTheme {
                 Scaffold(bottomBar = { BottomNavigationBar(navController) }) { innerPadding ->
