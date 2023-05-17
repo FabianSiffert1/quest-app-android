@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components
+package de.siffertio.app.quest.components.bottomNavigationBar
 
 import androidx.annotation.StringRes
 import androidx.compose.material.BottomNavigation
