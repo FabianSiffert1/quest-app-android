@@ -48,7 +48,8 @@ fun HomeScreen() {
                 questType = QuestTypes.SHARED
             ),
             QuestLogItemClass(
-                questTitle = "Quest 4",
+                questTitle =
+                    "Quest 4 Custom Color Quest with a long text, shows max quest size. Quest 4 Custom Color Quest with a long text, shows max quest size. Quest 4 Custom Color Quest with a long text, shows max quest size.",
                 questIcon = Icons.Default.List,
                 questCustomColor = Color.Cyan
             ),

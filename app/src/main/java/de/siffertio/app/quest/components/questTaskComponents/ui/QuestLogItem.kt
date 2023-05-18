@@ -17,6 +17,12 @@ import de.siffertio.app.quest.components.questTaskComponents.model.QuestLogItemC
 
 @Composable
 fun QuestLogItem(props: QuestLogItemClass) {
+    val maximumCharacters = 90
+    val cutOffString =
+        if (props.questTitle.length > maximumCharacters) {
+            props.questTitle.substring(0, maximumCharacters) + " ..."
+        } else props.questTitle
+
     Surface(
         modifier = Modifier.padding(8.dp).fillMaxWidth(),
         color = (props.questCustomColor ?: props.questType.color.color),
@@ -26,7 +32,7 @@ fun QuestLogItem(props: QuestLogItemClass) {
     ) {
         Row(modifier = Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(props.questIcon, contentDescription = props.questTitle)
-            Text(text = props.questTitle, modifier = Modifier.padding(8.dp))
+            Text(text = cutOffString, modifier = Modifier.padding(8.dp))
         }
     }
 }
