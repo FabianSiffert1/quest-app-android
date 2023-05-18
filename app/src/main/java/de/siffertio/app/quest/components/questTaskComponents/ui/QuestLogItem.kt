@@ -12,11 +12,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import de.siffertio.app.quest.components.questTaskComponents.model.QuestLogItemClass
 
 @Composable
 fun QuestLogItem(props: QuestLogItemClass) {
+
     val maximumCharacters = 90
     val cutOffString =
         if (props.questTitle.length > maximumCharacters) {
@@ -31,8 +33,8 @@ fun QuestLogItem(props: QuestLogItemClass) {
         tonalElevation = 8.dp
     ) {
         Row(modifier = Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
-            Icon(props.questIcon, contentDescription = props.questTitle)
-            Text(text = cutOffString, modifier = Modifier.padding(8.dp))
+            Icon(props.questIcon, contentDescription = props.questTitle, tint = Color.Black)
+            Text(text = cutOffString, modifier = Modifier.padding(8.dp), color = Color.Black)
         }
     }
 }

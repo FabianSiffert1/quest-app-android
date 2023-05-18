@@ -1,6 +1,7 @@
 package de.siffertio.app.quest.components.bottomNavigationBar
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -8,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -32,6 +34,10 @@ enum class BottomBarDestination(
 
 @Composable
 fun BottomNavigationBar(navHostController: NavHostController) {
+
+    val contentColor = LocalContentColor.current
+    val textColor: Color = if (isSystemInDarkTheme()) Color.White else Color.Black
+
     BottomNavigation(backgroundColor = Color.Transparent, elevation = 0.dp) {
         BottomBarDestination.values().forEach { destination ->
             val isCurrentDestOnBackStack = true
@@ -56,9 +62,13 @@ fun BottomNavigationBar(navHostController: NavHostController) {
                     }
                 },
                 icon = {
-                    Icon(destination.icon, contentDescription = stringResource(destination.label))
+                    Icon(
+                        destination.icon,
+                        contentDescription = stringResource(destination.label),
+                        tint = contentColor
+                    )
                 },
-                label = { Text(stringResource(destination.label)) },
+                label = { Text(text = stringResource(destination.label), color = textColor) },
             )
         }
     }
