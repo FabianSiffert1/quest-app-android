@@ -6,8 +6,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 
 data class QuestLogItemClass(
-    val questTitle: String,
-    val questIcon: ImageVector? = Icons.Default.Add,
-    val questType: QuestTypes? = QuestTypes.DEFAULT,
-    val questCustomColor: Color? = null
+    val questTitle: String = "Default Quest Title",
+    val questIcon: ImageVector = Icons.Default.Add,
+    val questType: QuestTypes = QuestTypes.DEFAULT,
+    val questCustomColor: Color? = null,
 )

@@ -16,12 +16,13 @@ import de.siffertio.app.quest.ui.theme.QuestTheme
 @Destination(style = SettingsTransitions::class)
 @SettingsNavGraph(start = true)
 fun Settings() {
-  QuestTheme() {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally) {
-          Text(text = "Settings Screen")
+    QuestTheme() {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "Settings Screen")
         }
-  }
+    }
 }

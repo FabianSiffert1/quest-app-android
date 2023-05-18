@@ -2,6 +2,7 @@ package de.siffertio.app.quest.components.questTaskComponents.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -16,17 +17,16 @@ import de.siffertio.app.quest.components.questTaskComponents.model.QuestLogItemC
 
 @Composable
 fun QuestLogItem(props: QuestLogItemClass) {
-  (props.questCustomColor ?: props.questType?.color)?.let {
     Surface(
-        modifier = Modifier.padding(8.dp),
-        color = it,
+        modifier = Modifier.padding(8.dp).fillMaxWidth(),
+        color = (props.questCustomColor ?: props.questType.color.color),
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
         shape = RoundedCornerShape(8.dp),
-        tonalElevation = 8.dp) {
-          Row(modifier = Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
-            Icon(props.questIcon!!, contentDescription = props.questTitle)
+        tonalElevation = 8.dp
+    ) {
+        Row(modifier = Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
+            Icon(props.questIcon, contentDescription = props.questTitle)
             Text(text = props.questTitle, modifier = Modifier.padding(8.dp))
-          }
         }
-  }
+    }
 }
