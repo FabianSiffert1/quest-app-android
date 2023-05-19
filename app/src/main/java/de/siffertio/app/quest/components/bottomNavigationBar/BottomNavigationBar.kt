@@ -34,7 +34,6 @@ enum class BottomBarDestination(
 
 @Composable
 fun BottomNavigationBar(navHostController: NavHostController) {
-
     val contentColor = LocalContentColor.current
     val textColor: Color = if (isSystemInDarkTheme()) Color.White else Color.Black
 
