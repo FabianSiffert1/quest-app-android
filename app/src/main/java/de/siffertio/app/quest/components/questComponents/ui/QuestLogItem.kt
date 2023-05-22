@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components.questTaskComponents.ui
+package de.siffertio.app.quest.components.questComponents.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -16,10 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import de.siffertio.app.quest.components.questTaskComponents.model.QuestLogItemClass
+import de.siffertio.app.quest.components.questComponents.model.QuestBaseClass
 
 @Composable
-fun QuestLogItem(props: QuestLogItemClass) {
+fun QuestLogItem(props: QuestBaseClass) {
 
     val maximumCharacters = 90
     val cutOffString =
@@ -36,7 +36,7 @@ fun QuestLogItem(props: QuestLogItemClass) {
     ) {
         Row(modifier = Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
             Image(
-                modifier = Modifier.size(32.dp),
+                modifier = Modifier.size(18.dp),
                 painter = painterResource(id = props.questIcon.icon),
                 contentDescription = "",
             )
