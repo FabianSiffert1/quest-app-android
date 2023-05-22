@@ -8,15 +8,15 @@ import com.ramcosta.composedestinations.animations.defaults.RootNavGraphDefaultA
 val defaultTransitions: RootNavGraphDefaultAnimations =
     RootNavGraphDefaultAnimations(
         enterTransition = {
-            slideInHorizontally(initialOffsetX = { 1000 }, animationSpec = tween(700))
+            slideInHorizontally(initialOffsetX = { 1000 }, animationSpec = tween(200))
         },
         exitTransition = {
-            slideOutHorizontally(targetOffsetX = { -1000 }, animationSpec = tween(700))
+            slideOutHorizontally(targetOffsetX = { -1000 }, animationSpec = tween(200))
         },
         popEnterTransition = {
-            slideInHorizontally(initialOffsetX = { -1000 }, animationSpec = tween(700))
+            slideInHorizontally(initialOffsetX = { -1000 }, animationSpec = tween(200))
         },
         popExitTransition = {
-            slideOutHorizontally(targetOffsetX = { 1000 }, animationSpec = tween(700))
+            slideOutHorizontally(targetOffsetX = { 1000 }, animationSpec = tween(200))
         }
     )

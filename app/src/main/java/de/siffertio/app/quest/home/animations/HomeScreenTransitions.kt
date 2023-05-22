@@ -16,24 +16,24 @@ object HomeTransitions : DestinationStyle.Animated {
     override fun AnimatedContentScope<NavBackStackEntry>.enterTransition(): EnterTransition? {
         return when (initialState.navGraph()) {
             NavGraphs.HomeNavGraph ->
-                slideInHorizontally(initialOffsetX = { 1000 }, animationSpec = tween(700))
-            else -> slideInHorizontally(initialOffsetX = { -1000 }, animationSpec = tween(700))
+                slideInHorizontally(initialOffsetX = { 1000 }, animationSpec = tween(200))
+            else -> slideInHorizontally(initialOffsetX = { -1000 }, animationSpec = tween(200))
         }
     }
 
     override fun AnimatedContentScope<NavBackStackEntry>.exitTransition(): ExitTransition? {
         return when (initialState.navGraph()) {
             NavGraphs.HomeNavGraph ->
-                slideOutHorizontally(targetOffsetX = { -1000 }, animationSpec = tween(700))
-            else -> slideOutHorizontally(targetOffsetX = { 1000 }, animationSpec = tween(700))
+                slideOutHorizontally(targetOffsetX = { -1000 }, animationSpec = tween(200))
+            else -> slideOutHorizontally(targetOffsetX = { 1000 }, animationSpec = tween(200))
         }
     }
 
     override fun AnimatedContentScope<NavBackStackEntry>.popEnterTransition(): EnterTransition? {
-        return slideInHorizontally(initialOffsetX = { -1000 }, animationSpec = tween(700))
+        return slideInHorizontally(initialOffsetX = { -1000 }, animationSpec = tween(200))
     }
 
     override fun AnimatedContentScope<NavBackStackEntry>.popExitTransition(): ExitTransition? {
-        return slideOutHorizontally(targetOffsetX = { 1000 }, animationSpec = tween(700))
+        return slideOutHorizontally(targetOffsetX = { 1000 }, animationSpec = tween(200))
     }
 }

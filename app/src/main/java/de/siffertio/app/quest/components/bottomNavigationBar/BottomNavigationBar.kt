@@ -7,6 +7,7 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.LocalContentColor
@@ -29,6 +30,7 @@ enum class BottomBarDestination(
     @StringRes val label: Int
 ) {
     Home(NavGraphs.HomeNavGraph, Icons.Default.Home, R.string.home_screen),
+    Journal(NavGraphs.JournalNavGraph, Icons.Default.DateRange, R.string.journal_screen),
     Settings(NavGraphs.SettingsNavGraph, Icons.Default.Settings, R.string.settings_screen)
 }
 
@@ -42,24 +44,7 @@ fun BottomNavigationBar(navHostController: NavHostController) {
             val isCurrentDestOnBackStack = true
             BottomNavigationItem(
                 selected = isCurrentDestOnBackStack,
-                onClick = {
-                    navHostController.backQueue.forEach { item ->
-                        if (destination.navGraph.route == item.destination.route) {
-                            navHostController.popBackStack(
-                                route = destination.navGraph.route,
-                                inclusive = false,
-                                saveState = false
-                            )
-                            return@BottomNavigationItem
-                        }
-                    }
-
-                    navHostController.navigate(destination.navGraph.route) {
-                        popUpTo(NavGraphs.root.route) { saveState = true }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                },
+                onClick = { navigateToBottomBarDestination(navHostController, destination) },
                 icon = {
                     Icon(
                         destination.icon,
@@ -73,8 +58,37 @@ fun BottomNavigationBar(navHostController: NavHostController) {
     }
 }
 
+private fun navigateToBottomBarDestination(
+    navHostController: NavHostController,
+    destination: BottomBarDestination
+) {
+
+    navHostController.backQueue.forEach { item ->
+        if (destination.navGraph.route == item.destination.route) {
+            navHostController.popBackStack(
+                route = destination.navGraph.route,
+                inclusive = false,
+                saveState = false
+            )
+            return
+        }
+    }
+
+    navHostController.navigate(destination.navGraph.route) {
+        popUpTo(NavGraphs.root.route) { saveState = true }
+        launchSingleTop = true
+        restoreState = true
+    }
+
+    navHostController.backQueue.forEach { item -> run { println(item.destination) } }
+}
+
 @Preview
 @Composable
 fun BottomNavigationBarPreview() {
-    QuestTheme() { BottomNavigationBar(navHostController = rememberNavController()) }
+    QuestTheme() {
+        BottomNavigationBar(
+            navHostController = rememberNavController(),
+        )
+    }
 }

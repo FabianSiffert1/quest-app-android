@@ -7,13 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.ramcosta.composedestinations.annotation.Destination
-import de.siffertio.app.quest.components.questTaskComponents.model.QuestIcons
-import de.siffertio.app.quest.components.questTaskComponents.model.QuestLogItemClass
-import de.siffertio.app.quest.components.questTaskComponents.model.QuestTypes
-import de.siffertio.app.quest.components.questTaskComponents.ui.QuestLog
 import de.siffertio.app.quest.ui.theme.QuestTheme
 
 @Composable
@@ -26,6 +21,7 @@ fun Home() {
 
 @Composable
 fun HomeScreen() {
+    /*
     val tempTaskList =
         listOf(
             QuestLogItemClass(
@@ -51,8 +47,11 @@ fun HomeScreen() {
             ),
             QuestLogItemClass(questTitle = "Quest 5 DefaultQuest")
         )
+     */
 
     QuestTheme() {
-        Column(modifier = Modifier.fillMaxSize().padding(32.dp)) { QuestLog(props = tempTaskList) }
+        Column(
+            modifier = Modifier.fillMaxSize().padding(32.dp)
+        ) { /*QuestLog(props = tempTaskList)*/}
     }
 }

@@ -1,8 +1,9 @@
 package de.siffertio.app.quest.components.questTaskComponents.model
 
+import androidx.annotation.DrawableRes
 import de.siffertio.app.quest.R
 
-enum class QuestIcons(val icon: Int) {
+enum class QuestIcons(@DrawableRes val icon: Int) {
     COOKING(R.drawable.icon_kitchen_cooker_utensils),
     CREATIVE(R.drawable.icon_brush_pencil),
     DEFAULT(R.drawable.icon_question_mark),
