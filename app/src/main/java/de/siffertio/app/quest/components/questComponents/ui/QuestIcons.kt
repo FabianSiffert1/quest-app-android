@@ -6,7 +6,7 @@ import de.siffertio.app.quest.R
 enum class QuestIcons(@DrawableRes val icon: Int) {
     COOKING(R.drawable.icon_kitchen_cooker_utensils),
     CREATIVE(R.drawable.icon_brush_pencil),
-    DEFAULT(R.drawable.icon_question_mark),
+    DEFAULT(R.drawable.ic_checkmark_box),
     GARDENING(R.drawable.icon_flower_plant),
     MEAT(R.drawable.icon_meat_food),
     MEDITATION(R.drawable.icon_meditation_yoga),

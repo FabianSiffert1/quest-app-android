@@ -1,46 +1,39 @@
 package de.siffertio.app.quest.components.questComponents.model
 
+import QuestTypeColors
 import android.icu.util.TimeUnit
-import androidx.compose.ui.graphics.Color
 import de.siffertio.app.quest.components.questComponents.ui.QuestIcons
 import java.time.LocalDate
 import kotlin.time.Duration
+import kotlin.time.Duration.Companion.days
 
-abstract class QuestBaseClass(
-    open val dueDate: LocalDate?,
-    open val completed: Boolean?,
-    open val lastCompleted: List<LocalDate>?,
-    open val questTitle: String,
-    open val questIcon: QuestIcons,
-    open val questType: QuestTypes,
-    open val questCustomColor: Color?,
-)
+sealed interface QuestTypes {
+    var dueDate: LocalDate?
+    var completed: Boolean?
+    var lastCompleted: List<LocalDate>?
+    var questTitle: String
+    var questIcon: QuestIcons
+    var questColor: QuestTypeColors?
+}
 
-class DefaultQuest() :
-    QuestBaseClass(
-        dueDate = null,
-        completed = null,
-        lastCompleted = null,
-        questTitle = "Default Quest Title",
-        questIcon = QuestTypes.DEFAULT.Icon,
-        questCustomColor = null,
-        questType = QuestTypes.DEFAULT
-    ) {}
+data class DefaultQuest(
+    override var dueDate: LocalDate? = null,
+    override var completed: Boolean? = null,
+    override var lastCompleted: List<LocalDate>? = null,
+    override var questTitle: String = "Default Quest Title",
+    override var questIcon: QuestIcons = QuestIcons.DEFAULT,
+    override var questColor: QuestTypeColors? = QuestTypeColors.DEFAULT
+) : QuestTypes
 
-class RepeatingQuest(private var repetitionInterval: Duration) :
-    QuestBaseClass(
-        dueDate = null,
-        completed = null,
-        lastCompleted = null,
-        questTitle = "Repeating Quest Title",
-        questIcon = QuestTypes.REPEATING.Icon,
-        questCustomColor = null,
-        questType = QuestTypes.REPEATING
-    ) {
-    override val questTitle = "Repeating Quest Title"
-    fun setRepetitionInterval(interval: Duration) {
-        repetitionInterval = interval
-    }
+data class RepeatingQuest(
+    override var dueDate: LocalDate? = null,
+    override var completed: Boolean? = null,
+    override var lastCompleted: List<LocalDate>? = null,
+    override var questTitle: String = "Repeating Quest Title",
+    override var questIcon: QuestIcons = QuestIcons.REPEATING,
+    override var questColor: QuestTypeColors? = QuestTypeColors.REPEATING,
+    var repetitionInterval: Duration = 1.days
+) : QuestTypes {
     private fun scheduleNextExecution(interval: Long, timeUnit: TimeUnit) {
         // Calculate the next execution time based on the repetition interval
         val nextExecutionTime = System.currentTimeMillis() + interval

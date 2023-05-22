@@ -13,7 +13,6 @@ import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
 import de.siffertio.app.quest.components.questComponents.model.RepeatingQuest
 import de.siffertio.app.quest.components.questComponents.ui.QuestLog
 import de.siffertio.app.quest.ui.theme.QuestTheme
-import kotlin.time.Duration.Companion.days
 
 @Composable
 @Destination(style = HomeTransitions::class)
@@ -26,7 +25,7 @@ fun Home() {
 @Composable
 fun HomeScreen() {
 
-    val tempTaskList = listOf(DefaultQuest(), RepeatingQuest(repetitionInterval = 10.days))
+    val tempTaskList = listOf(DefaultQuest(), RepeatingQuest())
 
     QuestTheme() {
         Column(modifier = Modifier.fillMaxSize().padding(32.dp)) { QuestLog(props = tempTaskList) }
