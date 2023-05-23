@@ -2,6 +2,7 @@ package de.siffertio.app.quest.components.questComponents.model
 
 import QuestTypeColors
 import android.icu.util.TimeUnit
+import de.siffertio.app.quest.components.questComponents.model.util.WeekDays
 import de.siffertio.app.quest.components.questComponents.ui.QuestIcons
 import java.time.LocalDate
 import kotlin.time.Duration
@@ -20,7 +21,7 @@ data class DefaultQuest(
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
-    override var questTitle: String = "Default Quest Title",
+    override var questTitle: String = "Default Quest",
     override var questIcon: QuestIcons = QuestIcons.DEFAULT,
     override var questColor: QuestTypeColors? = QuestTypeColors.DEFAULT
 ) : QuestTypes
@@ -29,7 +30,7 @@ data class RepeatingQuest(
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
-    override var questTitle: String = "Repeating Quest Title",
+    override var questTitle: String = "Repeating Quest",
     override var questIcon: QuestIcons = QuestIcons.REPEATING,
     override var questColor: QuestTypeColors? = QuestTypeColors.REPEATING,
     var repetitionInterval: Duration = 1.days
@@ -44,3 +45,13 @@ data class RepeatingQuest(
         // ...
     }
 }
+
+data class WeekdayQuest(
+    override var dueDate: LocalDate? = null,
+    override var completed: Boolean? = null,
+    override var lastCompleted: List<LocalDate>? = null,
+    override var questTitle: String = "Weekday Quest",
+    override var questIcon: QuestIcons = QuestIcons.REPEATING,
+    override var questColor: QuestTypeColors? = QuestTypeColors.REPEATING,
+    var questDays: List<WeekDays> = listOf(WeekDays.MONDAY)
+) : QuestTypes {}

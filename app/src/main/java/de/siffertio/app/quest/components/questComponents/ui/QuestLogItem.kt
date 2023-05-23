@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
 import de.siffertio.app.quest.components.questComponents.model.QuestTypes
 import de.siffertio.app.quest.components.questComponents.model.RepeatingQuest
+import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
 import de.siffertio.app.quest.components.questComponents.ui.questLogItem.DefaultQuestItem
 import de.siffertio.app.quest.components.questComponents.ui.questLogItem.RepeatingQuestItem
 
@@ -18,5 +19,8 @@ fun QuestLogItem(props: QuestTypes) {
     when (props) {
         is DefaultQuest -> DefaultQuestItem(props = props)
         is RepeatingQuest -> RepeatingQuestItem(props = props)
+        is WeekdayQuest -> {
+            // TODO
+        }
     }
 }
