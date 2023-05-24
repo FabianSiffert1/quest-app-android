@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.ramcosta.composedestinations.annotation.Destination
+import de.siffertio.app.quest.R
 import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
 import de.siffertio.app.quest.components.questComponents.model.RepeatingQuest
 import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
@@ -26,7 +28,12 @@ fun Home() {
 @Composable
 fun HomeScreen() {
 
-    val tempTaskList = listOf(DefaultQuest(), RepeatingQuest(), WeekdayQuest())
+    val tempTaskList =
+        listOf(
+            DefaultQuest(questTitle = stringResource(id = R.string.lorem_ipsum)),
+            RepeatingQuest(),
+            WeekdayQuest()
+        )
 
     QuestTheme() {
         Column(modifier = Modifier.fillMaxSize().padding(32.dp)) { QuestLog(props = tempTaskList) }

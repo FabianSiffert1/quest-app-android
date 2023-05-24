@@ -17,9 +17,8 @@ enum class WeekDays(@DrawableRes val icon: Int, @StringRes val text: Int) {
 
 fun getCurrentWeekDay(): WeekDays {
     val calendar = Calendar.getInstance()
-    val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
 
-    return when (dayOfWeek) {
+    return when (calendar.get(Calendar.DAY_OF_WEEK)) {
         Calendar.MONDAY -> WeekDays.MONDAY
         Calendar.TUESDAY -> WeekDays.TUESDAY
         Calendar.WEDNESDAY -> WeekDays.WEDNESDAY
