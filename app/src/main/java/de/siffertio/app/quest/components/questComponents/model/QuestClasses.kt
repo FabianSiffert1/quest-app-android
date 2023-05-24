@@ -51,7 +51,7 @@ data class WeekdayQuest(
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
     override var questTitle: String = "Weekday Quest",
-    override var questIcon: QuestIcons = QuestIcons.REPEATING,
-    override var questColor: QuestTypeColors? = QuestTypeColors.REPEATING,
+    override var questIcon: QuestIcons = QuestIcons.WEEKDAY,
+    override var questColor: QuestTypeColors? = QuestTypeColors.WEEKDAY,
     var questDays: List<WeekDays> = listOf(WeekDays.MONDAY)
 ) : QuestTypes {}

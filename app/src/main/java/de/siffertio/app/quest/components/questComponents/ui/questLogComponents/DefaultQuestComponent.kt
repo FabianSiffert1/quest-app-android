@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components.questComponents.ui.questLogItem
+package de.siffertio.app.quest.components.questComponents.ui.questLogComponents
 
 import QuestTypeColors
 import androidx.compose.foundation.BorderStroke
@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
 
 @Composable
-fun DefaultQuestItem(props: DefaultQuest) {
+fun DefaultQuestComponent(props: DefaultQuest) {
     Surface(
         modifier = Modifier.padding(8.dp).fillMaxWidth(),
         color = props.questColor?.color ?: QuestTypeColors.DEFAULT.color,

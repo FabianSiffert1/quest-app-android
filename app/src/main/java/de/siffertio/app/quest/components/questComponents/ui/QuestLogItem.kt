@@ -5,8 +5,9 @@ import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
 import de.siffertio.app.quest.components.questComponents.model.QuestTypes
 import de.siffertio.app.quest.components.questComponents.model.RepeatingQuest
 import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
-import de.siffertio.app.quest.components.questComponents.ui.questLogItem.DefaultQuestItem
-import de.siffertio.app.quest.components.questComponents.ui.questLogItem.RepeatingQuestItem
+import de.siffertio.app.quest.components.questComponents.ui.questLogComponents.DefaultQuestComponent
+import de.siffertio.app.quest.components.questComponents.ui.questLogComponents.RepeatingQuestComponent
+import de.siffertio.app.quest.components.questComponents.ui.questLogComponents.WeekdayQuestComponent
 
 @Composable
 fun QuestLogItem(props: QuestTypes) {
@@ -17,10 +18,10 @@ fun QuestLogItem(props: QuestTypes) {
         } else props.questTitle
     props.questTitle = cutOffString
     when (props) {
-        is DefaultQuest -> DefaultQuestItem(props = props)
-        is RepeatingQuest -> RepeatingQuestItem(props = props)
+        is DefaultQuest -> DefaultQuestComponent(props = props)
+        is RepeatingQuest -> RepeatingQuestComponent(props = props)
         is WeekdayQuest -> {
-            // TODO
+            WeekdayQuestComponent(props = props)
         }
     }
 }

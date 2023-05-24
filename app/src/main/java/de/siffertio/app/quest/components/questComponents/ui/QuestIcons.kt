@@ -13,4 +13,5 @@ enum class QuestIcons(@DrawableRes val icon: Int) {
     REPEATING(R.drawable.ic_repeating_quest),
     RUNNING(R.drawable.ic_sports_shoe),
     STRENGTH_TRAINING(R.drawable.ic_dumbbell),
+    WEEKDAY(R.drawable.ic_calendar)
 }

@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.ramcosta.composedestinations.annotation.Destination
 import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
 import de.siffertio.app.quest.components.questComponents.model.RepeatingQuest
+import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
 import de.siffertio.app.quest.components.questComponents.ui.QuestLog
 import de.siffertio.app.quest.ui.theme.QuestTheme
 
@@ -25,7 +26,7 @@ fun Home() {
 @Composable
 fun HomeScreen() {
 
-    val tempTaskList = listOf(DefaultQuest(), RepeatingQuest())
+    val tempTaskList = listOf(DefaultQuest(), RepeatingQuest(), WeekdayQuest())
 
     QuestTheme() {
         Column(modifier = Modifier.fillMaxSize().padding(32.dp)) { QuestLog(props = tempTaskList) }

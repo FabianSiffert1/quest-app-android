@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components.questComponents.ui.questLogItem
+package de.siffertio.app.quest.components.questComponents.ui.questLogComponents
 
 import QuestTypeColors
 import androidx.compose.foundation.BorderStroke
@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -20,10 +21,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import de.siffertio.app.quest.components.questComponents.model.RepeatingQuest
+import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
 
 @Composable
-fun RepeatingQuestItem(props: RepeatingQuest) {
+fun WeekdayQuestComponent(props: WeekdayQuest) {
+    val weekdaysInQuest = props.questDays
     Surface(
         modifier = Modifier.padding(8.dp).fillMaxWidth(),
         color = props.questColor?.color ?: QuestTypeColors.DEFAULT.color,
@@ -40,10 +42,18 @@ fun RepeatingQuestItem(props: RepeatingQuest) {
             Spacer(modifier = Modifier.padding(8.dp))
             Column(
                 horizontalAlignment = Alignment.Start,
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.Center
             ) {
                 Text(text = props.questTitle, color = Color.Black)
-                Text(text = "Interval: ${props.repetitionInterval.inWholeDays.toString()} day/s")
+                Row() {
+                    weekdaysInQuest.forEach { day ->
+                        Icon(
+                            modifier = Modifier.size(30.dp).padding(end = 6.dp),
+                            painter = painterResource(id = day.icon),
+                            contentDescription = null
+                        )
+                    }
+                }
             }
         }
     }
