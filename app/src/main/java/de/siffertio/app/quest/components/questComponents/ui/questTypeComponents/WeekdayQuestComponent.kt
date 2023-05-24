@@ -15,7 +15,7 @@ fun WeekdayQuestComponent(props: WeekdayQuest) {
 
     weekdaysInQuest.forEach { day ->
         Icon(
-            modifier = Modifier.size(30.dp).padding(end = 6.dp),
+            modifier = Modifier.size(24.dp).padding(end = 6.dp),
             painter = painterResource(id = day.icon),
             contentDescription = null
         )

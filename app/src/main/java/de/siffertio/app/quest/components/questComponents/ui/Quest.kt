@@ -46,7 +46,7 @@ fun Quest(props: QuestTypes) {
                 modifier = Modifier,
                 text = shortenQuestTitle(props.questTitle),
                 color = Color.Black,
-                fontSize = 16.sp
+                fontSize = 18.sp
             )
 
             Spacer(modifier = Modifier.padding(4.dp))
