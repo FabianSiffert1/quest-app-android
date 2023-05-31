@@ -12,7 +12,6 @@ import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
 @Composable
 fun WeekdayQuestComponent(props: WeekdayQuest) {
     val weekdaysInQuest = props.questDays
-
     weekdaysInQuest.forEach { day ->
         Icon(
             modifier = Modifier.size(24.dp).padding(end = 6.dp),
