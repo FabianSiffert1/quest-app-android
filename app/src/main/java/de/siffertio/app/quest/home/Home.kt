@@ -21,7 +21,6 @@ import de.siffertio.app.quest.ui.theme.QuestTheme
 @Destination(style = HomeTransitions::class)
 @HomeNavGraph(start = true)
 fun Home() {
-
     HomeScreen()
 }
 

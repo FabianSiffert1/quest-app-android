@@ -16,9 +16,10 @@ fun QuestLog(props: List<QuestTypes>) {
             modifier = Modifier.weight(1f),
         ) {
             items(1) {
+                Spacer(modifier = Modifier.padding(top = 24.dp))
                 props.forEach { prop ->
                     Quest(props = prop)
-                    Spacer(modifier = Modifier.padding(8.dp))
+                    Spacer(modifier = Modifier.padding(bottom = 24.dp))
                 }
             }
         }
