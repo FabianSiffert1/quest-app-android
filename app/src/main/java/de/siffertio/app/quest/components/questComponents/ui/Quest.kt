@@ -71,7 +71,7 @@ fun Quest(props: QuestTypes) {
         }
         Box(
             modifier =
-                Modifier.size(30.dp)
+                Modifier.size(32.dp)
                     .offset(x = 10.dp, y = -(20).dp)
                     .clip(shape = RoundedCornerShape(32.dp))
                     .background(color = MaterialTheme.colorScheme.surface),
