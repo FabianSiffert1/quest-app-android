@@ -15,6 +15,7 @@ import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
 import de.siffertio.app.quest.NavGraphs
 import de.siffertio.app.quest.components.bottomNavigationBar.BottomNavigationBar
+import de.siffertio.app.quest.home.startQuestButton.StartQuestButton
 import de.siffertio.app.quest.ui.theme.QuestTheme
 import defaultTransitions
 
@@ -30,7 +31,10 @@ class MainActivity : ComponentActivity() {
             val engine = rememberAnimatedNavHostEngine(rootDefaultAnimations = defaultTransitions)
             val navController = engine.rememberNavController()
             QuestTheme {
-                Scaffold(bottomBar = { BottomNavigationBar(navController) }) { innerPadding ->
+                Scaffold(
+                    bottomBar = { BottomNavigationBar(navController) },
+                    floatingActionButton = { StartQuestButton() }
+                ) { innerPadding ->
                     DestinationsNavHost(
                         engine = engine,
                         navController = navController,
