@@ -14,6 +14,7 @@ import de.siffertio.app.quest.R
 import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
 import de.siffertio.app.quest.components.questComponents.model.RepeatingQuest
 import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
+import de.siffertio.app.quest.components.questComponents.model.util.WeekDays
 import de.siffertio.app.quest.components.questComponents.ui.QuestLog
 import de.siffertio.app.quest.ui.theme.QuestTheme
 
@@ -31,7 +32,7 @@ fun HomeScreen() {
         listOf(
             DefaultQuest(questTitle = stringResource(id = R.string.lorem_ipsum)),
             RepeatingQuest(),
-            WeekdayQuest()
+            WeekdayQuest(questDays = listOf(WeekDays.MONDAY, WeekDays.TUESDAY))
         )
 
     QuestTheme() {
