@@ -33,6 +33,9 @@ import de.siffertio.app.quest.components.questComponents.ui.questTypeComponents.
 
 @Composable
 fun Quest(props: QuestTypes) {
+
+    val shortenedQuestTitle = shortenQuestTitle(props.questTitle)
+
     Box(modifier = Modifier.fillMaxWidth(2f)) {
         Row(
             modifier =
@@ -48,7 +51,7 @@ fun Quest(props: QuestTypes) {
             Column(modifier = Modifier.padding(4.dp)) {
                 Text(
                     modifier = Modifier,
-                    text = shortenQuestTitle(props.questTitle),
+                    text = shortenedQuestTitle,
                     color = Color.Black,
                     fontSize = 18.sp
                 )

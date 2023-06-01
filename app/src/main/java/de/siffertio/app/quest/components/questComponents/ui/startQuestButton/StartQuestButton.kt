@@ -1,7 +1,8 @@
-package de.siffertio.app.quest.home.startQuestButton
+package de.siffertio.app.quest.components.questComponents.ui.startQuestButton
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -17,16 +18,17 @@ import androidx.compose.ui.unit.dp
 import de.siffertio.app.quest.R
 
 @Composable
-fun StartQuestButton() {
+fun StartQuestButton(onClick: () -> Unit = {}) {
     Box(
         modifier =
             Modifier.clip(shape = RoundedCornerShape(24.dp))
                 .background(color = MaterialTheme.colorScheme.surface)
                 .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(24.dp))
+                .clickable { onClick() },
     ) {
         Icon(
             modifier = Modifier.size(50.dp).padding(12.dp),
-            painter = painterResource(id = R.drawable.ic_crossed_swords),
+            painter = painterResource(id = R.drawable.ic_plus_line),
             contentDescription = "Begin new quest!",
             tint = Color.Black
         )
