@@ -32,7 +32,18 @@ fun HomeScreen() {
         listOf(
             DefaultQuest(questTitle = stringResource(id = R.string.lorem_ipsum)),
             RepeatingQuest(),
-            WeekdayQuest(questDays = listOf(WeekDays.MONDAY, WeekDays.TUESDAY))
+            WeekdayQuest(
+                questDays =
+                    listOf(
+                        WeekDays.MONDAY,
+                        WeekDays.TUESDAY,
+                        WeekDays.WEDNESDAY,
+                        WeekDays.THURSDAY,
+                        WeekDays.FRIDAY,
+                        WeekDays.SATURDAY,
+                        WeekDays.SUNDAY
+                    )
+            )
         )
 
     QuestTheme() {
