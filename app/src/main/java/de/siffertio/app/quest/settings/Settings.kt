@@ -15,7 +15,12 @@ import de.siffertio.app.quest.settings.animations.SettingsScreenTransitions
 @Destination(style = SettingsScreenTransitions::class)
 @SettingsNavGraph(start = true)
 fun Settings() {
+    // TODO: ViewModel Logic Here
+    SettingsScreen()
+}
 
+@Composable
+fun SettingsScreen() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
