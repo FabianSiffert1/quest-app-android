@@ -22,13 +22,12 @@ import de.siffertio.app.quest.ui.theme.QuestTheme
 @Destination(style = HomeTransitions::class)
 @HomeNavGraph(start = true)
 fun Home() {
-    // TODO: ViewModel Logic here
+    // TODO import mainactivity viewmodel?
     HomeScreen()
 }
 
 @Composable
 fun HomeScreen() {
-
     val tempTaskList =
         listOf(
             DefaultQuest(questTitle = stringResource(id = R.string.lorem_ipsum)),
