@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components.questComponents.model.util
+package de.siffertio.app.quest.components.quests.model.util
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

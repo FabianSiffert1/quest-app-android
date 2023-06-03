@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components.questComponents.ui.startQuestButton
+package de.siffertio.app.quest.components.quests.ui.startQuestButton
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

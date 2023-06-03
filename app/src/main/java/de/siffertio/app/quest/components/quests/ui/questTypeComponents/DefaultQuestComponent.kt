@@ -1,10 +1,10 @@
-package de.siffertio.app.quest.components.questComponents.ui.questTypeComponents
+package de.siffertio.app.quest.components.quests.ui.questTypeComponents
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.sp
-import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
+import de.siffertio.app.quest.components.quests.model.DefaultQuest
 
 @Composable
 fun DefaultQuestComponent(props: DefaultQuest) {
