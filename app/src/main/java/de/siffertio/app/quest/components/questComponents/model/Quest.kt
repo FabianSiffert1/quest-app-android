@@ -15,25 +15,37 @@ sealed interface Quest {
     var title: String
     var icon: QuestIcons
     var color: QuestTypeColors?
+    var questType: QuestType
+}
+
+enum class QuestType(val type: String) {
+    DEFAULT("Default"),
+    REPEATING("Repeating"),
+    WEEKDAY("Weekday")
 }
 
 data class DefaultQuest(
+    override var questType: QuestType = QuestType.DEFAULT,
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
     override var title: String = "Default Quest",
     override var icon: QuestIcons = QuestIcons.DEFAULT,
-    override var color: QuestTypeColors? = QuestTypeColors.DEFAULT
+    override var color: QuestTypeColors? = QuestTypeColors.DEFAULT,
+    var tasks: MutableMap<String, Boolean> = mutableMapOf("Default Quest" to false),
+    var completedTasksCounter: Int = 0,
 ) : Quest
 
 data class RepeatingQuest(
+    override var questType: QuestType = QuestType.REPEATING,
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
     override var title: String = "Repeating Quest",
     override var icon: QuestIcons = QuestIcons.REPEATING,
     override var color: QuestTypeColors? = QuestTypeColors.REPEATING,
-    var repetitionInterval: Duration = 1.days
+    var repetitionInterval: Duration = 1.days,
+    var successRate: Float = 100f,
 ) : Quest {
     private fun scheduleNextExecution(interval: Long, timeUnit: TimeUnit) {
         // Calculate the next execution time based on the repetition interval
@@ -47,6 +59,7 @@ data class RepeatingQuest(
 }
 
 data class WeekdayQuest(
+    override var questType: QuestType = QuestType.WEEKDAY,
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
