@@ -2,8 +2,6 @@ package de.siffertio.app.quest.components.bottomNavigationBar
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -11,12 +9,15 @@ import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import de.siffertio.app.quest.NavGraph
@@ -35,14 +36,14 @@ enum class BottomBarDestination(
 }
 
 @Composable
-fun BottomNavigationBar(navHostController: NavHostController) {
+fun BottomNavigationBar(navHostController: NavHostController) = QuestTheme {
     val contentColor = LocalContentColor.current
     val textColor: Color = if (isSystemInDarkTheme()) Color.White else Color.Black
 
-    BottomNavigation(backgroundColor = Color.Transparent, elevation = 0.dp) {
+    NavigationBar(containerColor = Color.Transparent, contentColor = Color.Transparent) {
         BottomBarDestination.values().forEach { destination ->
             val isCurrentDestOnBackStack = true
-            BottomNavigationItem(
+            NavigationBarItem(
                 selected = isCurrentDestOnBackStack,
                 onClick = { navigateToBottomBarDestination(navHostController, destination) },
                 icon = {
@@ -52,6 +53,12 @@ fun BottomNavigationBar(navHostController: NavHostController) {
                         tint = contentColor
                     )
                 },
+                colors =
+                    NavigationBarItemDefaults.colors(
+                        selectedIconColor = MaterialTheme.colorScheme.primary,
+                        unselectedIconColor = MaterialTheme.colorScheme.onPrimary,
+                        indicatorColor = MaterialTheme.colorScheme.surface
+                    ),
                 label = { Text(text = stringResource(destination.label), color = textColor) },
             )
         }

@@ -10,7 +10,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.rememberNavController
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
@@ -28,7 +29,8 @@ import defaultTransitions
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView)
         setContent {
             val engine = rememberAnimatedNavHostEngine(rootDefaultAnimations = defaultTransitions)
             val navController = engine.rememberNavController()
@@ -60,16 +62,17 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MainActivityPreview() {
     QuestTheme {
-//        Scaffold(
-//            bottomBar = { BottomNavigationBar() },
-//            floatingActionButton = { StartQuestButton(onClick = { println("start new quest") }) }
-//        ) { innerPadding ->
-//            DestinationsNavHost(
-//                engine = rememberAnimatedNavHostEngine(),
-//                navController = rememberNavController(),
-//                modifier = Modifier.padding(innerPadding),
-//                navGraph = NavGraphs.root
-//            )
-//        }
+        //        Scaffold(
+        //            bottomBar = { BottomNavigationBar() },
+        //            floatingActionButton = { StartQuestButton(onClick = { println("start new
+        // quest") }) }
+        //        ) { innerPadding ->
+        //            DestinationsNavHost(
+        //                engine = rememberAnimatedNavHostEngine(),
+        //                navController = rememberNavController(),
+        //                modifier = Modifier.padding(innerPadding),
+        //                navGraph = NavGraphs.root
+        //            )
+        //        }
     }
 }
