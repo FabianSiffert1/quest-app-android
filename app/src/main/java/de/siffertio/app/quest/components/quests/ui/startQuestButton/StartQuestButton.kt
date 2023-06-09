@@ -12,7 +12,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import de.siffertio.app.quest.R
@@ -24,14 +23,17 @@ fun StartQuestButton(onClick: () -> Unit = {}) {
         modifier =
             Modifier.clip(shape = RoundedCornerShape(24.dp))
                 .background(color = MaterialTheme.colorScheme.surface)
-                .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(24.dp))
+                .border(
+                    width = 2.dp,
+                    color = MaterialTheme.colorScheme.primary,
+                    shape = RoundedCornerShape(24.dp)
+                )
                 .clickable { onClick() },
     ) {
         Icon(
             modifier = Modifier.size(50.dp).padding(12.dp),
             painter = painterResource(id = R.drawable.ic_plus_line),
             contentDescription = "Begin new quest!",
-            tint = Color.Black
         )
     }
 }

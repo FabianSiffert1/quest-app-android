@@ -1,6 +1,6 @@
 package de.siffertio.app.quest.components.quests.ui
 
-import QuestTypeColors
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -72,21 +72,7 @@ fun Quest(props: QuestTypes) {
                 }
             }
         }
-        Box(
-            modifier =
-                Modifier.size(32.dp)
-                    .offset(x = 300.dp, y = -(20).dp)
-                    .clip(shape = RoundedCornerShape(32.dp))
-                    .background(color = MaterialTheme.colorScheme.surface),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(
-                modifier = Modifier.size(20.dp),
-                painter = painterResource(id = props.questIcon.icon),
-                contentDescription = null,
-                tint = Color.Black
-            )
-        }
+        QuestTypeIcon(icon = props.questIcon.icon)
     }
 }
 
@@ -95,4 +81,22 @@ fun shortenQuestTitle(questTitle: String): String {
     return if (questTitle.length > maximumCharacters) {
         questTitle.substring(0, maximumCharacters) + " ..."
     } else questTitle
+}
+
+@Composable
+fun QuestTypeIcon(@DrawableRes icon: Int) {
+    Box(
+        modifier =
+            Modifier.size(40.dp)
+                .offset(x = 300.dp, y = -(25).dp)
+                .clip(shape = RoundedCornerShape(32.dp))
+                .background(color = MaterialTheme.colorScheme.surface),
+        contentAlignment = Alignment.Center
+    ) {
+        Icon(
+            modifier = Modifier.size(30.dp).padding(6.dp),
+            painter = painterResource(id = icon),
+            contentDescription = null,
+        )
+    }
 }

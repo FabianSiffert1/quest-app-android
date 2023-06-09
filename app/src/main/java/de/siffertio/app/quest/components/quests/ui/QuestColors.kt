@@ -1,3 +1,5 @@
+package de.siffertio.app.quest.components.quests.ui
+
 import androidx.compose.ui.graphics.Color
 
 enum class QuestTypeColors(val color: Color) {

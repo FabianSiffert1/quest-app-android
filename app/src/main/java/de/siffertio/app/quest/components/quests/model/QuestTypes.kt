@@ -1,9 +1,9 @@
 package de.siffertio.app.quest.components.quests.model
 
-import QuestTypeColors
 import android.icu.util.TimeUnit
 import de.siffertio.app.quest.components.quests.model.util.WeekDays
 import de.siffertio.app.quest.components.quests.ui.QuestIcons
+import de.siffertio.app.quest.components.quests.ui.QuestTypeColors
 import java.time.LocalDate
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.days
