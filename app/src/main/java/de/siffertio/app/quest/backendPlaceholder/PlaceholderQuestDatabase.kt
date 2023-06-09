@@ -1,7 +1,7 @@
 package de.siffertio.app.quest.backendPlaceholder
 
-import de.siffertio.app.quest.components.questComponents.model.QuestTypes
+import de.siffertio.app.quest.components.questComponents.model.Quest
 
 interface PlaceholderQuestDatabase {
-    val database: MutableList<QuestTypes>
+    val database: MutableList<Quest>
 }

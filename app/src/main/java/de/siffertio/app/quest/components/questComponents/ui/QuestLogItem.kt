@@ -24,7 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
-import de.siffertio.app.quest.components.questComponents.model.QuestTypes
+import de.siffertio.app.quest.components.questComponents.model.Quest
 import de.siffertio.app.quest.components.questComponents.model.RepeatingQuest
 import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
 import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponents.DefaultQuestComponent
@@ -33,7 +33,7 @@ import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponen
 import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponents.WeekdayQuestComponent
 
 @Composable
-fun QuestLogItem(props: QuestTypes) {
+fun QuestLogItem(props: Quest) {
 
     val shortenedQuestTitle = shortenQuestTitle(props.questTitle)
 

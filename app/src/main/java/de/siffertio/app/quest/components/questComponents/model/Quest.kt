@@ -8,7 +8,7 @@ import java.time.LocalDate
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.days
 
-sealed interface QuestTypes {
+sealed interface Quest {
     var dueDate: LocalDate?
     var completed: Boolean?
     var lastCompleted: List<LocalDate>?
@@ -24,7 +24,7 @@ data class DefaultQuest(
     override var questTitle: String = "Default Quest",
     override var questIcon: QuestIcons = QuestIcons.DEFAULT,
     override var questColor: QuestTypeColors? = QuestTypeColors.DEFAULT
-) : QuestTypes
+) : Quest
 
 data class RepeatingQuest(
     override var dueDate: LocalDate? = null,
@@ -34,7 +34,7 @@ data class RepeatingQuest(
     override var questIcon: QuestIcons = QuestIcons.REPEATING,
     override var questColor: QuestTypeColors? = QuestTypeColors.REPEATING,
     var repetitionInterval: Duration = 1.days
-) : QuestTypes {
+) : Quest {
     private fun scheduleNextExecution(interval: Long, timeUnit: TimeUnit) {
         // Calculate the next execution time based on the repetition interval
         val nextExecutionTime = System.currentTimeMillis() + interval
@@ -54,4 +54,4 @@ data class WeekdayQuest(
     override var questIcon: QuestIcons = QuestIcons.WEEKDAY,
     override var questColor: QuestTypeColors? = QuestTypeColors.WEEKDAY,
     var questDays: List<WeekDays> = listOf(WeekDays.MONDAY)
-) : QuestTypes {}
+) : Quest {}

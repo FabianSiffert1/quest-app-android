@@ -7,10 +7,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.siffertio.app.quest.components.questComponents.model.QuestTypes
+import de.siffertio.app.quest.components.questComponents.model.Quest
 
 @Composable
-fun QuestLog(props: List<QuestTypes>) {
+fun QuestLog(props: List<Quest>) {
     Column() {
         LazyColumn(
             modifier = Modifier.weight(1f),
