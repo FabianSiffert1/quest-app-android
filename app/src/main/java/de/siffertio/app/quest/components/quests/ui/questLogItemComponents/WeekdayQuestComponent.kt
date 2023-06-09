@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components.quests.ui.questTypeComponents
+package de.siffertio.app.quest.components.quests.ui.questLogItemComponents
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -20,21 +20,19 @@ import de.siffertio.app.quest.components.quests.model.WeekdayQuest
 fun WeekdayQuestComponent(props: WeekdayQuest) {
     val weekdaysInQuest = props.questDays
     val iconColor: Color = Color.Black
-
-    val backGroundColor =
-        weekdaysInQuest.forEach { day ->
-            Row(
-                modifier = Modifier.size(32.dp).clip(shape = RoundedCornerShape(32.dp)),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Icon(
-                    modifier = Modifier.size(20.dp),
-                    painter = painterResource(id = day.icon),
-                    contentDescription = null,
-                    tint = iconColor
-                )
-            }
-            Spacer(modifier = Modifier.padding(end = 8.dp))
+    weekdaysInQuest.forEach { day ->
+        Row(
+            modifier = Modifier.size(32.dp).clip(shape = RoundedCornerShape(32.dp)),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Icon(
+                modifier = Modifier.size(20.dp),
+                painter = painterResource(id = day.icon),
+                contentDescription = null,
+                tint = iconColor
+            )
         }
+        Spacer(modifier = Modifier.padding(end = 8.dp))
+    }
 }

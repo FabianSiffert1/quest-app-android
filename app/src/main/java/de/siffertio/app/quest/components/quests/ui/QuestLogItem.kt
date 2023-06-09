@@ -27,12 +27,13 @@ import de.siffertio.app.quest.components.quests.model.DefaultQuest
 import de.siffertio.app.quest.components.quests.model.QuestTypes
 import de.siffertio.app.quest.components.quests.model.RepeatingQuest
 import de.siffertio.app.quest.components.quests.model.WeekdayQuest
-import de.siffertio.app.quest.components.quests.ui.questTypeComponents.DefaultQuestComponent
-import de.siffertio.app.quest.components.quests.ui.questTypeComponents.RepeatingQuestComponent
-import de.siffertio.app.quest.components.quests.ui.questTypeComponents.WeekdayQuestComponent
+import de.siffertio.app.quest.components.quests.ui.questLogItemComponents.DefaultQuestComponent
+import de.siffertio.app.quest.components.quests.ui.questLogItemComponents.QuestTypeColors
+import de.siffertio.app.quest.components.quests.ui.questLogItemComponents.RepeatingQuestComponent
+import de.siffertio.app.quest.components.quests.ui.questLogItemComponents.WeekdayQuestComponent
 
 @Composable
-fun Quest(props: QuestTypes) {
+fun QuestLogItem(props: QuestTypes) {
 
     val shortenedQuestTitle = shortenQuestTitle(props.questTitle)
 
