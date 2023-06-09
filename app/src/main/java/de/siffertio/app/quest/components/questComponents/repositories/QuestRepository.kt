@@ -1,6 +1,6 @@
 package de.siffertio.app.quest.components.questComponents.repositories
 
-import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
+import de.siffertio.app.quest.backendPlaceholder.PlaceholderQuestDatabase
 import de.siffertio.app.quest.components.questComponents.model.QuestTypes
 
 interface QuestRepository {
@@ -10,19 +10,18 @@ interface QuestRepository {
     fun getQuests(): List<QuestTypes>
 }
 
-class QuestRepositoryImpl() : QuestRepository {
-    private val questDatabase = mutableListOf<QuestTypes>()
-    init {
-        questDatabase.add(DefaultQuest())
-    }
+class QuestRepositoryImpl(private val _questDatabase: PlaceholderQuestDatabase) : QuestRepository {
+
+    private val questDatabase = _questDatabase
+
     override fun addQuestList(newQuestsList: List<QuestTypes>) {
-        questDatabase.plus(newQuestsList)
+        questDatabase.database.addAll(newQuestsList)
     }
     override fun addQuest(quest: QuestTypes) {
-        questDatabase.add(quest)
+        questDatabase.database.add(quest)
     }
 
     override fun getQuests(): List<QuestTypes> {
-        return questDatabase
+        return questDatabase.database
     }
 }
