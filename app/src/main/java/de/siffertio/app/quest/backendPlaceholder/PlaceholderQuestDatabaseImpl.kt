@@ -1,8 +1,9 @@
 package de.siffertio.app.quest.backendPlaceholder
 
-import de.siffertio.app.quest.components.quests.model.QuestTypes
+import de.siffertio.app.quest.components.questComponents.model.QuestTypes
 
-class TempQuestDatabase {
+class PlaceholderQuestDatabaseImpl(override val quests: PlaceholderQuestDatabaseImpl) :
+    PlaceholderQuestDatabase {
     var questList: MutableList<QuestTypes> = mutableListOf<QuestTypes>()
 
     fun addQuestList(newQuestsList: List<QuestTypes>) {

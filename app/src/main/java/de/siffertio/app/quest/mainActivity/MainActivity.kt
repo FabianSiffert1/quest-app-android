@@ -19,7 +19,8 @@ import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
 import de.siffertio.app.quest.NavGraphs
 import de.siffertio.app.quest.components.bottomNavigationBar.BottomNavigationBar
-import de.siffertio.app.quest.components.quests.ui.startQuestButton.StartQuestButton
+import de.siffertio.app.quest.components.questComponents.ui.startQuest.startQuestButton.StartQuestButton
+import de.siffertio.app.quest.destinations.StartQuestScreenDestination
 import de.siffertio.app.quest.ui.theme.QuestTheme
 import defaultTransitions
 
@@ -46,7 +47,9 @@ class MainActivity : AppCompatActivity() {
                 Scaffold(
                     bottomBar = { BottomNavigationBar(navController) },
                     floatingActionButton = {
-                        StartQuestButton(onClick = { println("start new quest") })
+                        StartQuestButton(
+                            onClick = { navController.navigate(StartQuestScreenDestination.route) }
+                        )
                     }
                 ) { innerPadding ->
                     DestinationsNavHost(

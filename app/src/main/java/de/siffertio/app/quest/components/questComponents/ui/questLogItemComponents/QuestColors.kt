@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components.quests.ui.questLogItemComponents
+package de.siffertio.app.quest.components.questComponents.ui.questLogItemComponents
 
 import androidx.compose.ui.graphics.Color
 

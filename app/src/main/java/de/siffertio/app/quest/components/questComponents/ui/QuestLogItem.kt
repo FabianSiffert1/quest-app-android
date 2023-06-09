@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components.quests.ui
+package de.siffertio.app.quest.components.questComponents.ui
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
@@ -23,14 +23,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import de.siffertio.app.quest.components.quests.model.DefaultQuest
-import de.siffertio.app.quest.components.quests.model.QuestTypes
-import de.siffertio.app.quest.components.quests.model.RepeatingQuest
-import de.siffertio.app.quest.components.quests.model.WeekdayQuest
-import de.siffertio.app.quest.components.quests.ui.questLogItemComponents.DefaultQuestComponent
-import de.siffertio.app.quest.components.quests.ui.questLogItemComponents.QuestTypeColors
-import de.siffertio.app.quest.components.quests.ui.questLogItemComponents.RepeatingQuestComponent
-import de.siffertio.app.quest.components.quests.ui.questLogItemComponents.WeekdayQuestComponent
+import de.siffertio.app.quest.components.questComponents.model.DefaultQuest
+import de.siffertio.app.quest.components.questComponents.model.QuestTypes
+import de.siffertio.app.quest.components.questComponents.model.RepeatingQuest
+import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
+import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponents.DefaultQuestComponent
+import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponents.QuestTypeColors
+import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponents.RepeatingQuestComponent
+import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponents.WeekdayQuestComponent
 
 @Composable
 fun QuestLogItem(props: QuestTypes) {

@@ -1,4 +1,4 @@
-package de.siffertio.app.quest.components.quests.ui.questLogItemComponents
+package de.siffertio.app.quest.components.questComponents.ui.questLogItemComponents
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -14,7 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import de.siffertio.app.quest.components.quests.model.WeekdayQuest
+import de.siffertio.app.quest.components.questComponents.model.WeekdayQuest
 
 @Composable
 fun WeekdayQuestComponent(props: WeekdayQuest) {
