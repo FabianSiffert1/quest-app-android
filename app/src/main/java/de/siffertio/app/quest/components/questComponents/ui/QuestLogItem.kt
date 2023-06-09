@@ -33,16 +33,16 @@ import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponen
 import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponents.WeekdayQuestComponent
 
 @Composable
-fun QuestLogItem(props: Quest) {
+fun QuestLogItem(quest: Quest) {
 
-    val shortenedQuestTitle = shortenQuestTitle(props.title)
+    val shortenedQuestTitle = shortenQuestTitle(quest.title)
 
     Box(modifier = Modifier.fillMaxWidth(2f)) {
         Row(
             modifier =
                 Modifier.fillMaxWidth(1f)
                     .background(
-                        color = props.color?.color ?: QuestTypeColors.DEFAULT.color,
+                        color = quest.color?.color ?: QuestTypeColors.DEFAULT.color,
                         shape = RoundedCornerShape(8.dp)
                     )
                     .padding(4.dp),
@@ -63,17 +63,17 @@ fun QuestLogItem(props: Quest) {
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
                 ) {
-                    when (props) {
-                        is DefaultQuest -> DefaultQuestComponent(props = props)
-                        is RepeatingQuest -> RepeatingQuestComponent(props = props)
+                    when (quest) {
+                        is DefaultQuest -> DefaultQuestComponent(props = quest)
+                        is RepeatingQuest -> RepeatingQuestComponent(props = quest)
                         is WeekdayQuest -> {
-                            WeekdayQuestComponent(props = props)
+                            WeekdayQuestComponent(props = quest)
                         }
                     }
                 }
             }
         }
-        QuestTypeIcon(icon = props.icon.icon)
+        QuestTypeIcon(icon = quest.icon.icon)
     }
 }
 

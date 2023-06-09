@@ -15,7 +15,7 @@ sealed interface Quest {
     var title: String
     var icon: QuestIcons
     var color: QuestTypeColors?
-    var questType: QuestType
+    val questType: QuestType
 }
 
 enum class QuestType(val type: String) {
@@ -24,20 +24,22 @@ enum class QuestType(val type: String) {
     WEEKDAY("Weekday")
 }
 
+data class Task(val id: Int, val description: String, val completed: Boolean)
+
 data class DefaultQuest(
-    override var questType: QuestType = QuestType.DEFAULT,
+    override val questType: QuestType = QuestType.DEFAULT,
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
     override var title: String = "Default Quest",
     override var icon: QuestIcons = QuestIcons.DEFAULT,
     override var color: QuestTypeColors? = QuestTypeColors.DEFAULT,
-    var tasks: MutableMap<String, Boolean> = mutableMapOf("Default Quest" to false),
+    var tasks: List<Task>? = listOf(Task(id = 0, description = "Default Quest", completed = false)),
     var completedTasksCounter: Int = 0,
-) : Quest
+) : Quest {}
 
 data class RepeatingQuest(
-    override var questType: QuestType = QuestType.REPEATING,
+    override val questType: QuestType = QuestType.REPEATING,
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
@@ -59,7 +61,7 @@ data class RepeatingQuest(
 }
 
 data class WeekdayQuest(
-    override var questType: QuestType = QuestType.WEEKDAY,
+    override val questType: QuestType = QuestType.WEEKDAY,
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,

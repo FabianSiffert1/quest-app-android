@@ -20,6 +20,7 @@ import de.siffertio.app.quest.components.questComponents.model.QuestType
 @OptIn(ExperimentalStdlibApi::class)
 @Composable
 fun QuestTypeToggle(selectedQuestType: MutableState<QuestType>) {
+
     val questTypes = QuestType.values()
     val onSelectionChange = { questType: QuestType -> selectedQuestType.value = questType }
 

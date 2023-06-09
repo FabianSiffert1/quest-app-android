@@ -4,10 +4,8 @@ import HomeNavGraph
 import HomeTransitions
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.ramcosta.composedestinations.annotation.Destination
 import de.siffertio.app.quest.components.questComponents.repositories.QuestRepository
 import de.siffertio.app.quest.components.questComponents.ui.QuestLog
@@ -26,8 +24,8 @@ fun Home(viewModel: HomeViewModel = koinViewModel()) {
 @Composable
 fun HomeScreen(questDatabase: QuestRepository) {
     QuestTheme() {
-        Column(modifier = Modifier.fillMaxSize().padding(32.dp)) {
-            QuestLog(props = questDatabase.getQuests())
+        Column(modifier = Modifier.fillMaxSize()) {
+            QuestLog(questList = questDatabase.getQuests())
         }
     }
 }
