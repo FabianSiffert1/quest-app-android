@@ -12,27 +12,27 @@ sealed interface Quest {
     var dueDate: LocalDate?
     var completed: Boolean?
     var lastCompleted: List<LocalDate>?
-    var questTitle: String
-    var questIcon: QuestIcons
-    var questColor: QuestTypeColors?
+    var title: String
+    var icon: QuestIcons
+    var color: QuestTypeColors?
 }
 
 data class DefaultQuest(
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
-    override var questTitle: String = "Default Quest",
-    override var questIcon: QuestIcons = QuestIcons.DEFAULT,
-    override var questColor: QuestTypeColors? = QuestTypeColors.DEFAULT
+    override var title: String = "Default Quest",
+    override var icon: QuestIcons = QuestIcons.DEFAULT,
+    override var color: QuestTypeColors? = QuestTypeColors.DEFAULT
 ) : Quest
 
 data class RepeatingQuest(
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
-    override var questTitle: String = "Repeating Quest",
-    override var questIcon: QuestIcons = QuestIcons.REPEATING,
-    override var questColor: QuestTypeColors? = QuestTypeColors.REPEATING,
+    override var title: String = "Repeating Quest",
+    override var icon: QuestIcons = QuestIcons.REPEATING,
+    override var color: QuestTypeColors? = QuestTypeColors.REPEATING,
     var repetitionInterval: Duration = 1.days
 ) : Quest {
     private fun scheduleNextExecution(interval: Long, timeUnit: TimeUnit) {
@@ -50,8 +50,8 @@ data class WeekdayQuest(
     override var dueDate: LocalDate? = null,
     override var completed: Boolean? = null,
     override var lastCompleted: List<LocalDate>? = null,
-    override var questTitle: String = "Weekday Quest",
-    override var questIcon: QuestIcons = QuestIcons.WEEKDAY,
-    override var questColor: QuestTypeColors? = QuestTypeColors.WEEKDAY,
+    override var title: String = "Weekday Quest",
+    override var icon: QuestIcons = QuestIcons.WEEKDAY,
+    override var color: QuestTypeColors? = QuestTypeColors.WEEKDAY,
     var questDays: List<WeekDays> = listOf(WeekDays.MONDAY)
 ) : Quest {}

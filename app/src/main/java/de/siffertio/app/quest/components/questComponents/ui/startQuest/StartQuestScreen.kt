@@ -38,7 +38,9 @@ fun StartQuestContent(questRepository: QuestRepository = get()) {
             onClick = {
                 questRepository.addQuestList(
                     mutableListOf(
-                        DefaultQuest(questTitle = tempDefaultQuestPlaceholder),
+                        DefaultQuest(
+                            title = tempDefaultQuestPlaceholder,
+                        ),
                         RepeatingQuest(),
                         WeekdayQuest(
                             questDays =

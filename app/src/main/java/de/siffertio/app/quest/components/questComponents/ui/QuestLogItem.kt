@@ -35,14 +35,14 @@ import de.siffertio.app.quest.components.questComponents.ui.questLogItemComponen
 @Composable
 fun QuestLogItem(props: Quest) {
 
-    val shortenedQuestTitle = shortenQuestTitle(props.questTitle)
+    val shortenedQuestTitle = shortenQuestTitle(props.title)
 
     Box(modifier = Modifier.fillMaxWidth(2f)) {
         Row(
             modifier =
                 Modifier.fillMaxWidth(1f)
                     .background(
-                        color = props.questColor?.color ?: QuestTypeColors.DEFAULT.color,
+                        color = props.color?.color ?: QuestTypeColors.DEFAULT.color,
                         shape = RoundedCornerShape(8.dp)
                     )
                     .padding(4.dp),
@@ -73,7 +73,7 @@ fun QuestLogItem(props: Quest) {
                 }
             }
         }
-        QuestTypeIcon(icon = props.questIcon.icon)
+        QuestTypeIcon(icon = props.icon.icon)
     }
 }
 
