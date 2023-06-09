@@ -17,6 +17,7 @@ import com.google.accompanist.navigation.material.ExperimentalMaterialNavigation
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
+import com.ramcosta.composedestinations.annotation.Destination
 import de.siffertio.app.quest.NavGraphs
 import de.siffertio.app.quest.components.bottomNavigationBar.BottomNavigationBar
 import de.siffertio.app.quest.components.questComponents.ui.startQuest.startQuestButton.StartQuestButton
@@ -48,7 +49,11 @@ class MainActivity : AppCompatActivity() {
                     bottomBar = { BottomNavigationBar(navController) },
                     floatingActionButton = {
                         StartQuestButton(
-                            onClick = { navController.navigate(StartQuestScreenDestination.route) }
+                            onClick = {
+                                navController.navigate(StartQuestScreenDestination.route) {
+                                    popUpTo(Destination.ROOT_NAV_GRAPH_ROUTE)
+                                }
+                            }
                         )
                     }
                 ) { innerPadding ->
