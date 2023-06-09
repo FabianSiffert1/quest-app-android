@@ -24,13 +24,9 @@ import de.siffertio.app.quest.ui.theme.QuestTheme
 @HomeNavGraph(start = true)
 fun Home() {
     // TODO import mainactivity viewmodel?
-    HomeScreen()
-}
-
-@Composable
-fun HomeScreen() {
+    // replace with koin injection of interface PlaceholderQuestDatabase!!!
     val questDatabase = TempQuestDatabase()
-    questDatabase.appendListElements(
+    questDatabase.addQuestList(
         mutableListOf(
             DefaultQuest(questTitle = stringResource(id = R.string.lorem_ipsum)),
             RepeatingQuest(),
@@ -48,7 +44,11 @@ fun HomeScreen() {
             )
         )
     )
+    HomeScreen(questDatabase = questDatabase)
+}
 
+@Composable
+fun HomeScreen(questDatabase: TempQuestDatabase) {
     QuestTheme() {
         Column(modifier = Modifier.fillMaxSize().padding(32.dp)) {
             QuestLog(props = questDatabase.questList)

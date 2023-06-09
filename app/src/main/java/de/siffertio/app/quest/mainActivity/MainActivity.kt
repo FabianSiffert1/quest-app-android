@@ -1,8 +1,8 @@
 package de.siffertio.app.quest.mainActivity
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -24,10 +24,10 @@ import defaultTransitions
     ExperimentalAnimationApi::class,
     ExperimentalMaterial3Api::class
 )
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // startKoin { modules(appModule) }
+
         setContent {
             val engine = rememberAnimatedNavHostEngine(rootDefaultAnimations = defaultTransitions)
             val navController = engine.rememberNavController()

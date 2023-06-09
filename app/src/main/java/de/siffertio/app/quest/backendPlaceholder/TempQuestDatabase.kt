@@ -5,10 +5,18 @@ import de.siffertio.app.quest.components.quests.model.QuestTypes
 class TempQuestDatabase {
     var questList: MutableList<QuestTypes> = mutableListOf<QuestTypes>()
 
-    fun appendListElements(elements: List<QuestTypes>) {
-        val list: MutableList<QuestTypes> = ArrayList()
-        list.addAll(questList)
-        list.addAll(elements)
-        questList = list
+    fun addQuestList(newQuestsList: List<QuestTypes>) {
+        val currentQuestsList: MutableList<QuestTypes> = ArrayList()
+        currentQuestsList.addAll(this.questList)
+        currentQuestsList.addAll(newQuestsList)
+        this.questList = currentQuestsList
+    }
+
+    fun addQuest(quest: QuestTypes) {
+        val helperQuestList: List<QuestTypes> = listOf(quest)
+        val currentQuestsList: MutableList<QuestTypes> = ArrayList()
+        currentQuestsList.addAll(this.questList)
+        currentQuestsList.addAll(helperQuestList)
+        this.questList = currentQuestsList
     }
 }
