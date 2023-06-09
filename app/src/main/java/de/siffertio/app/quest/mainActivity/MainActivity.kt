@@ -4,15 +4,17 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
 import de.siffertio.app.quest.NavGraphs
@@ -30,11 +32,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView)
         setContent {
             val engine = rememberAnimatedNavHostEngine(rootDefaultAnimations = defaultTransitions)
             val navController = engine.rememberNavController()
             QuestTheme {
+                val systemUiController = rememberSystemUiController()
+                val useDarkIcons = !isSystemInDarkTheme()
+                systemUiController.setStatusBarColor(
+                    color = MaterialTheme.colorScheme.surface,
+                    darkIcons = useDarkIcons
+                )
+                systemUiController.setNavigationBarColor(color = MaterialTheme.colorScheme.surface)
                 Scaffold(
                     bottomBar = { BottomNavigationBar(navController) },
                     floatingActionButton = {
